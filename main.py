@@ -19,7 +19,8 @@ API_TOKEN = os.getenv("API_TOKEN")
 ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))
 GPLINKS_API = os.getenv("GPLINKS_API")
 SHORTENER_URL = f"https://api.gplinks.com/api?api={GPLINKS_API}&url="
-DELETE_TIME = 3600  # 1 Hour
+DELETE_TIME = int(os.getenv("DELETE_TIME", "3600"))
+PORT = os.getenv("PORT", "8080")
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
@@ -200,3 +201,4 @@ async def main():
 if __name__ == "__main__":
     logging.basicConfig(level=logging.ERROR)
     asyncio.run(main())
+
